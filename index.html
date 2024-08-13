@@ -3,11 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Glance.co.uk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .overlay-text {
+            position: absolute;
+            color: white;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .overlay-text.top {
+            letter-spacing: 5px;
+            top: 40px;
+            font-size: 24px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .overlay-text.middle {
+            top: 50%;
+            font-size: 40px;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: -px
+        }
+        .overlay-text.middle:hover {
+            text-decoration: underline;
+        }
+        .section {
+            position: relative;
+            padding-bottom: 80px; /* Increased padding to account for overlap */
+            text-align: center;
+            background-color: #282a36;
+            z-index: 1;
+        }
+        .overlap-section {
+            position: relative;
+            height: 80px; /* Height of the overlap */
+            background-color: #282a36; /* Adjust color as needed */
+            margin-top: -250px; /* Creates the overlap */
+            z-index: 2;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background-color: #111;
+            font-size: 16px;
+        }
+        .footer .left {
+            text-align: left;
+        }
+        .footer .right {
+            text-align: right;
+        }
+        @keyframes custom-pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+        .animate-custom-pulse {
+            animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
 </head>
 <body>
+
+<!-- First Section (Video Section) -->
+<div class="video-container">
+    <video autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text top">GLAANCE</div>
+    <div class="overlay-text middle animate-custom-pulse" id="comingSoon">COMING SOON</div>
+</div>
+
+<!-- Second Section -->
+<div class="section" id="secondSection">
     <div data-aidaform-app="form202405" data-url="https://nummelo21.aidaform.com/free-email-signup-form" data-width="100%" data-height="500px" data-do-resize></div>
+</div>
+<!-- Footer Section -->
+<div class="footer">
+    <div class="left">
+        Copyright © 2024 Glaance - All rights reserved
+    </div>
+    <div class="right">
+        Powered by Sparkling
+    </div>
+</div>
+<!-- Empty Overlapping Section -->
+<div class="overlap-section"></div>
+
+
+<script>
+(function(){
+    var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";
+    if(!gt.call(d,id)){
+        r=cr.call(d,"script");
+        r.id=id;
+        r.src="https://widget.aidaform.com/embed.js";
+        (d.head || tg.call(d,"head")[0]).appendChild(r);
+    }
+})();
+
+// JavaScript for hover effect and smooth scrolling
+document.addEventListener('DOMContentLoaded', function() {
+    const comingSoon = document.getElementById('comingSoon');
+    const secondSection = document.getElementById('secondSection');
+
+    comingSoon.classList.add('hover:underline', 'cursor-pointer');
+
+    comingSoon.addEventListener('click', function() {
+        secondSection.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
+
 </body>
 </html>
-
-<script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
